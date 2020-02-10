@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/02/09/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>基于双目相机计算机视觉任务难点</title>
+    <url>/2020/02/10/%E5%9F%BA%E4%BA%8E%E5%8F%8C%E7%9B%AE%E7%9B%B8%E6%9C%BA%E7%9B%AE%E6%A0%87%E8%BF%BD%E8%B8%AA%E9%9A%BE%E7%82%B9/</url>
+    <content><![CDATA[<ul>
+<li>双目相机基线窄对近处物体成像效果好，基线宽对远处物体成像效果好，这是一个trade-off，如何使得两者平衡，是很多团队正在研究的方向，有一些团队使用了多台不同基线长度的双目相机来解决这个问题</li>
+</ul>
+<ul>
+<li>在进行3D重构时，往往要求双目相机的光轴互相平行，这是因为在3D重构时，我们在两张双目相机得到的图片上寻找匹配点时，如果双目相机光轴平行，我们可以只考虑一个方向，我们可以在图片上沿水平方向寻找匹配点，这大大缩短了匹配算法的时间以及提升了精度；而现实生活中，由于安装等等原因，可能造成双目相机光轴不平行。当然如果相机光轴不平行时，可以通过八点法等方法计算Rotation matrix R 以及 Translation matrix T 来得到两个相机的位置变换，再进行匹配算法，3D重构等(在我的Github中有匹配算法，求相机变换矩阵RT的基于RANSAC算法的八点法以及物体3D重构的代码实现)</li>
+</ul>
+<ul>
+<li>在3D环境中目标匹配比较难，Detector在不同的frame中探测到很多个物体，但是Data association ( Similarity measurement ) 比较难，当然这也是传统MoT(多目标追踪) 的难点，使得我们将这些物体匹配起来比较难，也就无从谈及追踪了</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>学科常见问题汇总</category>
+      </categories>
   </entry>
 </search>
